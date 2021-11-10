@@ -1,7 +1,7 @@
 var request = require('request');
 const prompt = require('prompt-sync')();
 var validate, options, starPage, widgetView, unassumeIdentity;
-const campus = 'csueastbay';
+const campusName = 'csueastbay';
 var continueBool = 'Y';
 
 const JSessionID = prompt('Enter your session ID:');
@@ -9,7 +9,7 @@ validateSession();
 function validateSession() {
     validate = {
         'method': 'POST',
-        'url': 'https://'+campus+'.cascadecms.com/ajax/dashboard/overview.act?id=',
+        'url': 'https://'+campusName+'.cascadecms.com/ajax/dashboard/overview.act?id=',
         'headers': {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -17,9 +17,9 @@ function validateSession() {
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'JSESSIONID='+ JSessionID,
-            'Host': ''+campus+'.cascadecms.com',
-            'Origin': 'https://'+campus+'.cascadecms.com',
-            'Referer': 'https://'+campus+'.cascadecms.com/home.act ',
+            'Host': ''+campusName+'.cascadecms.com',
+            'Origin': 'https://'+campusName+'.cascadecms.com',
+            'Referer': 'https://'+campusName+'.cascadecms.com/home.act ',
             'sec-ch-ua': '\\"Google Chrome\\";v=\\"93\\", \\" Not;A Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"93\\"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '\\"Windows\\" ',
@@ -46,11 +46,11 @@ function validateSession() {
 
 
 function setGet() {
-    const NETID = prompt('Enter staff\'s netID:');
-    const STARPAGEID = prompt('Enter staff\'s page id:');
+    const studentID = prompt('Enter staff\'s studentID:');
+    const starPageID = prompt('Enter staff\'s page id:');
     options = {
         'method': 'GET',
-        'url': 'https://'+campus+'.cascadecms.com/assumeIdentity.act?id=' + NETID,
+        'url': 'https://'+campusName+'.cascadecms.com/assumeIdentity.act?id=' + studentID,
         'headers': {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -58,9 +58,9 @@ function setGet() {
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'JSESSIONID=' + JSessionID,
-            'Host': ''+campus+'.cascadecms.com',
-            'Origin': 'https://'+campus+'.cascadecms.com',
-            'Referer': 'https://'+campus+'.cascadecms.com/home.act ',
+            'Host': ''+campusName+'.cascadecms.com',
+            'Origin': 'https://'+campusName+'.cascadecms.com',
+            'Referer': 'https://'+campusName+'.cascadecms.com/home.act ',
             'sec-ch-ua': '\\"Google Chrome\\";v=\\"93\\", \\" Not;A Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"93\\"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '\\"Windows\\" ',
@@ -74,7 +74,7 @@ function setGet() {
 
     starPage = {
         'method': 'POST',
-        'url': 'https://'+campus+'.cascadecms.com/ajax/entitystar/create.act',
+        'url': 'https://'+campusName+'.cascadecms.com/ajax/entitystar/create.act',
         'headers': {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -82,9 +82,9 @@ function setGet() {
             'Connection': 'keep-alive',
             'Content-Type': 'application/x-www-form-urlencoded',
             'Cookie': 'JSESSIONID=' + JSessionID,
-            'Host': ''+campus+'.cascadecms.com',
-            'Origin': 'https://'+campus+'.cascadecms.com',
-            'Referer': 'https://'+campus+'.cascadecms.com/home.act ',
+            'Host': ''+campusName+'.cascadecms.com',
+            'Origin': 'https://'+campusName+'.cascadecms.com',
+            'Referer': 'https://'+campusName+'.cascadecms.com/home.act ',
             'sec-ch-ua': '\\"Google Chrome\\";v=\\"93\\", \\" Not;A Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"93\\"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '\\"Windows\\" ',
@@ -95,13 +95,13 @@ function setGet() {
             'X-Requested-With': 'XMLHttpRequest'
         },
         form: {
-            'id': STARPAGEID,
+            'id': starPageID,
             'type': 'page'
         }
     };
     widgetView = {
         'method': 'POST',
-        'url': 'https://'+campus+'.cascadecms.com/ajax/dashboard/overview.act?id=',
+        'url': 'https://'+campusName+'.cascadecms.com/ajax/dashboard/overview.act?id=',
         'headers': {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -109,9 +109,9 @@ function setGet() {
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'JSESSIONID=' + JSessionID,
-            'Host': ''+campus+'.cascadecms.com',
-            'Origin': 'https://'+campus+'.cascadecms.com',
-            'Referer': 'https://'+campus+'.cascadecms.com/home.act ',
+            'Host': ''+campusName+'.cascadecms.com',
+            'Origin': 'https://'+campusName+'.cascadecms.com',
+            'Referer': 'https://'+campusName+'.cascadecms.com/home.act ',
             'sec-ch-ua': '\\"Google Chrome\\";v=\\"93\\", \\" Not;A Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"93\\"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '\\"Windows\\" ',
@@ -141,7 +141,7 @@ function setGet() {
                 }
             },
             "siteId": "5c3975267f0000012daf82576362fab6",
-            "id": "" + NETID,
+            "id": "" + studentID,
             "widgets": {
                 "549": {
                     "id": "549",
@@ -174,7 +174,7 @@ function setGet() {
 
     unassumeIdentity = {
         'method': 'GET',
-        'url': 'https://'+campus+'.cascadecms.com/unassumeIdentity.act',
+        'url': 'https://'+campusName+'.cascadecms.com/unassumeIdentity.act',
         'headers': {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -182,9 +182,9 @@ function setGet() {
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'JSESSIONID=' + JSessionID,
-            'Host': ''+campus+'.cascadecms.com',
-            'Origin': 'https://'+campus+'.cascadecms.com',
-            'Referer': 'https://'+campus+'.cascadecms.com/home.act ',
+            'Host': ''+campusName+'.cascadecms.com',
+            'Origin': 'https://'+campusName+'.cascadecms.com',
+            'Referer': 'https://'+campusName+'.cascadecms.com/home.act ',
             'sec-ch-ua': '\\"Google Chrome\\";v=\\"93\\", \\" Not;A Brand\\";v=\\"99\\", \\"Chromium\\";v=\\"93\\"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '\\"Windows\\" ',
