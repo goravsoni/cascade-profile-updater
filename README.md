@@ -17,7 +17,7 @@ Copy and Enter the value of the _JSession_ cookie.
 
 Enter identification and page id you would like _stared_ this will show up on the dashboard for easy access.
 
-The page id located ``campusName.cascadecms.com/assumeIdentity.act?id=PAGEID'``.
+The page id located ``campusName.cascadecms.com/assumeIdentity.act?id=PAGEID``.
 
 ### Limitations:
 - Session **expires** once logged out of account
